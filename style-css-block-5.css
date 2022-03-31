@@ -16,18 +16,21 @@
 body {
     margin: 0;
     padding-left: 32px;
-    width: 1120px;
+    
     height: 100%;
     background-color: #F2F2F2;
     font-family: 'TT Lakes Regular';
     box-sizing: border-box;
     border-top: 1px solid #D9FFF5;
 }
+.container {
+    max-width: 1120px;
+}
 header {
     display: flex;
     align-items:center;
     padding: 0;
-    max-width: 1056px;
+    width: 100%;
     height: 56px;
     margin-bottom:24px;
     background: linear-gradient( to right,  #F2F2F2 0%, #FFFFFF 98.61%); 
@@ -111,8 +114,8 @@ details summary::after {
 details[open] summary::after {
     content: attr(data-open);
 }
-.button-brend__bth.bth--7,
-.button-brend__bth.bth--8 {
+.button-brend__bth.bth--7-hidden,
+.button-brend__bth.bth--8-hidden {
             display: none;
         }
 .button-brend__bth.bth--10,
@@ -122,8 +125,8 @@ details[open] summary::after {
 
 @media (max-width: 768px) {
    
-    body {
-        width: 768px;
+    .container {
+        max-width: 100%;
         padding-left: 24px;
     }
     .button-brend__bth {
@@ -131,13 +134,13 @@ details[open] summary::after {
         width: 224px;
         flex-wrap: wrap;
     }
-    .bth--7-hidden,
-    .bth--8-hidden {
-        display: none;
-    }
     .button-brend__bth.bth--7,
     .button-brend__bth.bth--8 {
         display: inline-flex;
+    }
+    .button-brend__bth.bth--7-hidden,
+    .button-brend__bth.bth--8-hidden {
+        display: none;
     }
     .button-brend__bth.bth--9 {
         margin-left: -5px;
@@ -152,22 +155,34 @@ details[open] summary::after {
 }
 
 @media (max-width: 320px) {
-    body {
-        width: 320px;
-        padding-left: 16px;
+    .container {
+        max-width: 100%;
+        height: 234px;
+        padding-left: 0;
+        overflow: hidden;
     }
     .button-brend {
         display: none;  
     }
     .mobile-swiper {
-        display: block; 
+        display: block;
     }
     details {
         display:none
-    }
+    } 
     .button-brend__bth {
-        margin-right:-20px;
+        max-width: 240px;
     }
-    
+}
+
+@media (min-width:1120px) {
+    .button-brend__bth.bth--7-hidden,
+    .button-brend__bth.bth--8-hidden {
+            display: inline-flex;
+        }
+    .button-brend__bth.bth--7,
+    .button-brend__bth.bth--8 {
+            display: none;
+        }
 }
 
